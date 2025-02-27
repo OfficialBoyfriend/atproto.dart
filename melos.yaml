@@ -55,3 +55,7 @@ scripts:
       melos publish --no-dry-run --git-tag-version
       git push origin --tags
     description: Publish all packages, create git tags and push them to origin.
+
+ide:
+  intellij:
+    enabled: false
