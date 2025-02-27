@@ -139,20 +139,26 @@ final class ServerService {
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/createAccount
   Future<core.XRPCResponse<CreateAccountOutput>> createAccount({
-    required String handle,
     required String email,
+    required String handle,
     required String password,
+    String? did,
     String? inviteCode,
+    String? verificationCode,
+    String? verificationPhone,
     String? recoveryKey,
     Map<String, dynamic>? plcOp,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateAccount,
         body: {
-          'handle': handle,
           'email': email,
+          'handle': handle,
           'password': password,
+          'did': did,
           'inviteCode': inviteCode,
+          'verificationCode': verificationCode,
+          'verificationPhone': verificationPhone,
           'recoveryKey': recoveryKey,
           'plcOp': plcOp,
         },
