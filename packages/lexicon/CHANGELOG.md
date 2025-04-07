@@ -1,5 +1,17 @@
 # Release Note
 
+## v0.2.5
+
+- Add `record-key` on `LexString` as JSON value.
+
+## v0.2.4
+
+- Add `record-key` on `LexString`.
+
+## v0.2.3
+
+- Add `tid` on `LexString`.
+
 ## v0.2.2
 
 - Merge latest lexicons definitions.

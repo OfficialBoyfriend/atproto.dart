@@ -12,7 +12,11 @@ enum LexStringFormat {
   atIdentifier('at-identifier'),
   nsid('nsid'),
   cid('cid'),
-  language('language');
+  language('language'),
+  tid('tid'),
+  @JsonValue('record-key')
+  recordKey('record-key'),
+  ;
 
   /// The format value.
   final String value;
