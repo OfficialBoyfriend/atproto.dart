@@ -18,9 +18,11 @@ final class ModerationService {
     required ReportSubject subject,
     ModerationReasonType reasonType = ModerationReasonType.spam,
     String? reason,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.post(
         ns.comAtprotoModerationCreateReport,
+        headers: headers,
         body: {
           'subject': subject.toJson(),
           'reasonType': reasonType.value,
