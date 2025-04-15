@@ -36,9 +36,9 @@ final class _ReasonConverter
   }
 
   @override
-  Map<String, dynamic> toJson(Reason object) => object.when(
-        repost: (data) => data.toJson(),
-        pin: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(Reason object) => switch (object) {
+        UReasonRepost(:final data) => data.toJson(),
+        UReasonPin(:final data) => data.toJson(),
+        UReasonUnknown(:final data) => data,
+      };
 }

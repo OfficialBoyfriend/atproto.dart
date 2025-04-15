@@ -14,9 +14,9 @@ ModerationDecision decideNotification(
   final ModerationSubjectNotification subject,
   final ModerationOpts opts,
 ) {
-  final (author, labels) = subject.when(
-    notification: (data) => (data.author, data.labels),
-  );
+  final (author, labels) = switch (subject) {
+    UModerationSubjectNotification(:final data) => (data.author, data.labels),
+  };
 
   final decision = ModerationDecision.init(
     did: author.did,

@@ -36,9 +36,9 @@ final class _SkeletonReasonConverter
   }
 
   @override
-  Map<String, dynamic> toJson(SkeletonReason object) => object.when(
-        repost: (data) => data.toJson(),
-        pin: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(SkeletonReason object) => switch (object) {
+        USkeletonReasonRepost(:final data) => data.toJson(),
+        USkeletonReasonPin(:final data) => data.toJson(),
+        USkeletonReasonUnknown(:final data) => data,
+      };
 }

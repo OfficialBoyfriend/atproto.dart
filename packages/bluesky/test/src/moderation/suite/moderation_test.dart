@@ -1,5 +1,6 @@
 // Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:bluesky/src/moderation/types/behaviors/moderation_cause.dart';
 import 'package:test/test.dart';
 
 // Project imports:
@@ -284,34 +285,35 @@ void main() {
       );
 
       expect(
-        actual
-            .getUI(ModerationBehaviorContext.contentList)
-            .filters
-            .first
-            .whenOrNull(label: (data) => data.label.value),
+        (actual.getUI(ModerationBehaviorContext.contentList).filters.first
+                as UModerationCauseLabel?)
+            ?.data
+            .label
+            .value,
         '!hide',
       );
       expect(
-        actual
-            .getUI(ModerationBehaviorContext.contentList)
-            .filters[1]
-            .whenOrNull(label: (data) => data.label.value),
+        (actual.getUI(ModerationBehaviorContext.contentList).filters[1]
+                as UModerationCauseLabel?)
+            ?.data
+            .label
+            .value,
         'porn',
       );
       expect(
-        actual
-            .getUI(ModerationBehaviorContext.contentList)
-            .blurs
-            .first
-            .whenOrNull(label: (data) => data.label.value),
+        (actual.getUI(ModerationBehaviorContext.contentList).blurs.first
+                as UModerationCauseLabel?)
+            ?.data
+            .label
+            .value,
         '!hide',
       );
       expect(
-        actual
-            .getUI(ModerationBehaviorContext.contentMedia)
-            .blurs
-            .first
-            .whenOrNull(label: (data) => data.label.value),
+        (actual.getUI(ModerationBehaviorContext.contentMedia).blurs.first
+                as UModerationCauseLabel?)
+            ?.data
+            .label
+            .value,
         'porn',
       );
     });

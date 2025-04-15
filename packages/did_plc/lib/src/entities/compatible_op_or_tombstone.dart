@@ -12,7 +12,7 @@ import 'tombstone.dart';
 part 'compatible_op_or_tombstone.freezed.dart';
 
 @freezed
-class CompatibleOpOrTombstone with _$CompatibleOpOrTombstone {
+sealed class CompatibleOpOrTombstone with _$CompatibleOpOrTombstone {
   // ignore: unused_element
   const CompatibleOpOrTombstone._();
 

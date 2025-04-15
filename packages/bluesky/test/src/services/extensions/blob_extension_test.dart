@@ -33,14 +33,14 @@ void main() {
 
     expect(embedImage, isA<Embed>());
 
-    final image = embedImage.when(
-      record: (data) => null,
-      images: (data) => data.images.first,
-      external: (data) => null,
-      recordWithMedia: (data) => null,
-      video: (data) => null,
-      unknown: (data) => null,
-    );
+    final image = switch (embedImage) {
+      UEmbedRecord() => null,
+      UEmbedImages(:final data) => data.images.first,
+      UEmbedExternal() => null,
+      UEmbedRecordWithMedia() => null,
+      UEmbedVideo() => null,
+      UEmbedUnknown() => null,
+    };
 
     expect(image?.alt, 'test');
     expect(image?.image == blob, isTrue);

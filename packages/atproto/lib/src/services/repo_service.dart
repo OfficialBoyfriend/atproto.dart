@@ -162,15 +162,15 @@ final class RepoService {
         body: {
           'repo': _ctx.session?.did ?? _ctx.oAuthSession?.sub,
           'writes': actions
-              .map((e) => e.when(
-                    create: (data) => data.toJson(),
-                    update: (data) => data.toJson(),
-                    delete: (data) => {
-                      core.objectType: data.type,
-                      'collection': data.uri.collection.toString(),
-                      'rkey': data.uri.rkey,
-                    },
-                  ))
+              .map((e) => switch (e) {
+                    UBatchActionCreate(:final data) => data.toJson(),
+                    UBatchActionUpdate(:final data) => data.toJson(),
+                    UBatchActionDelete(:final data) => {
+                        core.objectType: data.type,
+                        'collection': data.uri.collection.toString(),
+                        'rkey': data.uri.rkey,
+                      },
+                  })
               .toList(),
           'validate': validate,
           'swapCommit': swapCommitCid,

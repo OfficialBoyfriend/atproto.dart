@@ -10,7 +10,7 @@ import '../message_view.dart';
 part 'message_view.freezed.dart';
 
 @freezed
-class UConvoMessageView with _$UConvoMessageView {
+sealed class UConvoMessageView with _$UConvoMessageView {
   // ignore: unused_element
   const UConvoMessageView._();
 
@@ -58,9 +58,9 @@ final class _UConvoMessageViewConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UConvoMessageView object) => object.when(
-        messageView: (data) => data.toJson(),
-        deletedMessageView: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(UConvoMessageView object) => switch (object) {
+        UConvoMessageViewMessageView(:final data) => data.toJson(),
+        UConvoMessageViewDeletedMessageView(:final data) => data.toJson(),
+        UConvoMessageViewUnknown(:final data) => data,
+      };
 }

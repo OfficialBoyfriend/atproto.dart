@@ -12,7 +12,7 @@ part 'facet_mention.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#mention
 @freezed
-class FacetMention with _$FacetMention {
+abstract class FacetMention with _$FacetMention {
   const factory FacetMention({
     @typeKey @Default(appBskyRichtextFacetMention) String type,
     required String did,

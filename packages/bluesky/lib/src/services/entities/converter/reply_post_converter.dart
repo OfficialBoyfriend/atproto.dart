@@ -43,10 +43,10 @@ final class _ReplyPostConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ReplyPost object) => object.when(
-        record: (data) => data.toJson(),
-        notFound: (data) => data.toJson(),
-        blocked: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(ReplyPost object) => switch (object) {
+        UReplyPostRecord(:final data) => data.toJson(),
+        UReplyPostNotFound(:final data) => data.toJson(),
+        UReplyPostBlocked(:final data) => data.toJson(),
+        UReplyPostUnknown(:final data) => data,
+      };
 }

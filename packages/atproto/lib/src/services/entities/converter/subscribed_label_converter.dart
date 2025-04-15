@@ -34,9 +34,9 @@ final class _SubscribedLabelConverter
   }
 
   @override
-  Map<String, dynamic> toJson(SubscribedLabel object) => object.when(
-        labels: (data) => data.toJson(),
-        info: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(SubscribedLabel object) => switch (object) {
+        USubscribedLabelLabels(:final data) => data.toJson(),
+        USubscribedLabelInfo(:final data) => data.toJson(),
+        USubscribedLabelUnknown(:final data) => data,
+      };
 }

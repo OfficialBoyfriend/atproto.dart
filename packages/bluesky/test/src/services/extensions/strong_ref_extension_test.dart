@@ -4,6 +4,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // Project imports:
+import 'package:bluesky/src/services/entities/embed.dart';
 import 'package:bluesky/src/services/entities/embed_record.dart';
 import 'package:bluesky/src/services/extensions/strong_ref.dart';
 
@@ -13,14 +14,14 @@ void main() {
 
     final embed = ref.toEmbedRecord();
 
-    final embedRecord = embed.when(
-      record: (data) => data,
-      images: (data) => null,
-      external: (data) => null,
-      recordWithMedia: (data) => null,
-      video: (data) => null,
-      unknown: (data) => null,
-    );
+    final embedRecord = switch (embed) {
+      UEmbedRecord(:final data) => data,
+      UEmbedImages() => null,
+      UEmbedExternal() => null,
+      UEmbedRecordWithMedia() => null,
+      UEmbedVideo() => null,
+      UEmbedUnknown() => null,
+    };
 
     expect(embedRecord, isA<EmbedRecord>());
     expect(embedRecord?.ref == ref, isTrue);

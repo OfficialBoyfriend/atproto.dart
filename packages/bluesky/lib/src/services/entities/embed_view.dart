@@ -18,7 +18,7 @@ part 'embed_view.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#postview
 @freezed
-class EmbedView with _$EmbedView {
+sealed class EmbedView with _$EmbedView {
   const factory EmbedView.record({
     required EmbedViewRecord data,
   }) = UEmbedViewRecord;

@@ -1,9 +1,9 @@
 import 'dart:io';
 
+import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/atproto_oauth.dart';
 import 'package:bluesky/app_bsky_embed_video.dart';
-import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/bluesky_chat.dart';
 import 'package:bluesky/chat_bsky_convo_defs.dart';
@@ -107,28 +107,16 @@ Future<void> main() async {
     final subscription = await bsky.atproto.sync.subscribeRepos();
 
     subscription.data.stream.listen((event) {
-      event.when(
-        //! You can handle commit events very easily
-        //! with RepoCommitAdaptor.
-        commit: RepoCommitAdaptor(
-          //! Create events.
-          onCreatePost: (data) => data.record,
-          onCreateLike: print,
-
-          //! Update events.
-          onUpdateProfile: print,
-
-          //! Delete events.
-          onDeletePost: print,
-        ).execute,
-        identity: print,
-        account: print,
-        handle: print,
-        migrate: print,
-        tombstone: print,
-        info: print,
-        unknown: print,
-      );
+      return switch (event) {
+        USubscribedRepoCommit(:final data) => print(data),
+        USubscribedRepoIdentity(:final data) => print(data),
+        USubscribedRepoAccount(:final data) => print(data),
+        USubscribedRepoHandle(:final data) => print(data),
+        USubscribedRepoMigrate(:final data) => print(data),
+        USubscribedRepoTombstone(:final data) => print(data),
+        USubscribedRepoInfo(:final data) => print(data),
+        USubscribedRepoUnknown(:final data) => print(data),
+      };
     });
   } on UnauthorizedException catch (e) {
     print(e);

@@ -60,16 +60,16 @@ Future<void> main() async {
     //! You can use Stream API easily.
     final subscription = await atproto.sync.subscribeRepos();
     subscription.data.stream.listen((event) {
-      event.when(
-        commit: print,
-        identity: print,
-        account: print,
-        handle: print,
-        migrate: print,
-        tombstone: print,
-        info: print,
-        unknown: print,
-      );
+      return switch (event) {
+        USubscribedRepoCommit(:final data) => print(data),
+        USubscribedRepoIdentity(:final data) => print(data),
+        USubscribedRepoAccount(:final data) => print(data),
+        USubscribedRepoHandle(:final data) => print(data),
+        USubscribedRepoMigrate(:final data) => print(data),
+        USubscribedRepoTombstone(:final data) => print(data),
+        USubscribedRepoInfo(:final data) => print(data),
+        USubscribedRepoUnknown(:final data) => print(data),
+      };
     });
   } on UnauthorizedException catch (e) {
     print(e);

@@ -11,7 +11,7 @@ import '../types/app/bsky/feed/postgate/disable_rule.dart';
 part 'post_rule.freezed.dart';
 
 @freezed
-class UPostRule with _$UPostRule {
+sealed class UPostRule with _$UPostRule {
   // ignore: unused_element
   const UPostRule._();
 
@@ -49,8 +49,8 @@ final class UPostRuleConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UPostRule object) => object.when(
-        disableRule: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(UPostRule object) => switch (object) {
+        UPostRuleDisableRule(:final data) => data.toJson(),
+        UPostRuleUnknown(:final data) => data,
+      };
 }

@@ -17,15 +17,15 @@ ModerationDecision decidePost(
   final ModerationSubjectPost subject,
   final ModerationOpts opts,
 ) {
-  final (author, labels, uri, record, embed) = subject.when(
-    postView: (data) => (
-      data.author,
-      data.labels,
-      data.uri,
-      data.record,
-      data.embed,
-    ),
-  );
+  final (author, labels, uri, record, embed) = switch (subject) {
+    UModerationSubjectPostPostView(:final data) => (
+        data.author,
+        data.labels,
+        data.uri,
+        data.record,
+        data.embed,
+      ),
+  };
 
   final decision = ModerationDecision.init(
     did: author.did,
@@ -143,9 +143,10 @@ bool _hasHiddenPost(
   if (embed == null) return false;
 
   if (embed is UEmbedViewRecord) {
-    final uri = embed.data.record.whenOrNull(
-      record: (data) => data.uri,
-    );
+    final uri = switch (embed.data.record) {
+      UEmbedViewRecordViewRecord(:final data) => data.uri,
+      _ => null,
+    };
 
     if (hiddenPosts.contains(uri)) {
       return true;
@@ -153,9 +154,10 @@ bool _hasHiddenPost(
   }
 
   if (embed is UEmbedViewRecordWithMedia) {
-    final uri = embed.data.record.record.whenOrNull(
-      record: (data) => data.uri,
-    );
+    final uri = switch (embed.data.record.record) {
+      UEmbedViewRecordViewRecord(:final data) => data.uri,
+      _ => null,
+    };
 
     if (hiddenPosts.contains(uri)) {
       return true;
@@ -198,9 +200,10 @@ bool _hasMutedWords(
   }
 
   if (embed is UEmbedViewRecord) {
-    final embeddedPost = embed.data.record.whenOrNull(
-      record: (data) => data.value,
-    );
+    final embeddedPost = switch (embed.data.record) {
+      UEmbedViewRecordViewRecord(:final data) => data.value,
+      _ => null,
+    };
 
     // quoted post text
     if (embeddedPost != null &&

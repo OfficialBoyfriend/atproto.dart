@@ -86,19 +86,19 @@ final class _PreferenceConverter
   }
 
   @override
-  Map<String, dynamic> toJson(Preference object) => object.when(
-        adultContent: (data) => data.toJson(),
-        contentLabel: (data) => data.toJson(),
-        savedFeeds: (data) => data.toJson(),
-        savedFeedsV2: (data) => data.toJson(),
-        personalDetails: (data) => data.toJson(),
-        feedView: (data) => data.toJson(),
-        threadView: (data) => data.toJson(),
-        interests: (data) => data.toJson(),
-        mutedWords: (data) => data.toJson(),
-        hiddenPosts: (data) => data.toJson(),
-        labelersPref: (data) => data.toJson(),
-        postInteractionSettingsPref: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(Preference object) => switch (object) {
+        UPreferenceAdultContent(:final data) => data.toJson(),
+        UPreferenceContentLabel(:final data) => data.toJson(),
+        UPreferenceSavedFeeds(:final data) => data.toJson(),
+        UPreferenceSavedFeedsV2(:final data) => data.toJson(),
+        UPreferencePersonalDetails(:final data) => data.toJson(),
+        UPreferenceFeedView(:final data) => data.toJson(),
+        UPreferenceThreadView(:final data) => data.toJson(),
+        UPreferenceInterests(:final data) => data.toJson(),
+        UPreferenceMutedWords(:final data) => data.toJson(),
+        UPreferenceHiddenPosts(:final data) => data.toJson(),
+        UPreferenceLabelersPref(:final data) => data.toJson(),
+        UPreferencePostInteractionSettingsPref(:final data) => data.toJson(),
+        UPreferenceUnknown(:final data) => data,
+      };
 }

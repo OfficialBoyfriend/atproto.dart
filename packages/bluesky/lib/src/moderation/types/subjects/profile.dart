@@ -11,11 +11,20 @@ ModerationDecision decideProfile(
   final ModerationSubjectProfile subject,
   final ModerationOpts opts,
 ) {
-  final (did, labels) = subject.when(
-    profileViewBasic: (data) => (data.did, data.labels),
-    profileView: (data) => (data.did, data.labels),
-    profileViewDetailed: (data) => (data.did, data.labels),
-  );
+  final (did, labels) = switch (subject) {
+    UModerationSubjectProfileProfileViewBasic(:final data) => (
+        data.did,
+        data.labels
+      ),
+    UModerationSubjectProfileProfileView(:final data) => (
+        data.did,
+        data.labels
+      ),
+    UModerationSubjectProfileProfileViewDetailed(:final data) => (
+        data.did,
+        data.labels
+      ),
+  };
 
   final decision = ModerationDecision.init(did: did, me: did == opts.userDid);
 

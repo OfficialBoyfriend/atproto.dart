@@ -50,10 +50,12 @@ final class _LexArrayItemConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexArrayItem object) => object.when(
-        primitive: (data) => data.toJson(),
-        ipld: (data) => data.toJson(),
-        blob: (data) => data.toJson(),
-        refVariant: (data) => data.toJson(),
-      );
+  Map<String, dynamic> toJson(LexArrayItem object) {
+    return switch (object) {
+      ULexArrayItemPrimitive(:final data) => data.toJson(),
+      ULexArrayItemIpld(:final data) => data.toJson(),
+      ULexArrayItemBlob(:final data) => data.toJson(),
+      ULexArrayRefVariant(:final data) => data.toJson(),
+    };
+  }
 }

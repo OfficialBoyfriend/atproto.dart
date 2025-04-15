@@ -42,10 +42,10 @@ final class _FacetFeatureConverter
   }
 
   @override
-  Map<String, dynamic> toJson(FacetFeature object) => object.when(
-        mention: (data) => data.toJson(),
-        link: (data) => data.toJson(),
-        tag: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(FacetFeature object) => switch (object) {
+        UFacetFeatureMention(:final data) => data.toJson(),
+        UFacetFeatureLink(:final data) => data.toJson(),
+        UFacetFeatureTag(:final data) => data.toJson(),
+        UFacetFeatureUnknown(:final data) => data,
+      };
 }

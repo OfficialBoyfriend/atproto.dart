@@ -12,7 +12,7 @@ import '../log_leave_convo.dart';
 part 'log.freezed.dart';
 
 @freezed
-class UConvoLog with _$UConvoLog {
+sealed class UConvoLog with _$UConvoLog {
   // ignore: unused_element
   const UConvoLog._();
 
@@ -78,11 +78,11 @@ final class _UConvoLogConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UConvoLog object) => object.when(
-        logBeginConvo: (data) => data.toJson(),
-        logLeaveConvo: (data) => data.toJson(),
-        logCreateMessage: (data) => data.toJson(),
-        logDeleteMessage: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(UConvoLog object) => switch (object) {
+        UConvoLogConvoLogBeginConvo(:final data) => data.toJson(),
+        UConvoLogConvoLogLeaveConvo(:final data) => data.toJson(),
+        UConvoLogConvoLogCreateMessage(:final data) => data.toJson(),
+        UConvoLogConvoLogDeleteMessage(:final data) => data.toJson(),
+        UConvoLogUnknown(:final data) => data,
+      };
 }

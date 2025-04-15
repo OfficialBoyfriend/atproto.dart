@@ -52,12 +52,12 @@ final class _EmbedConverter
   }
 
   @override
-  Map<String, dynamic> toJson(Embed object) => object.when(
-        record: (data) => data.toJson(),
-        images: (data) => data.toJson(),
-        external: (data) => data.toJson(),
-        recordWithMedia: (data) => data.toJson(),
-        video: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(Embed object) => switch (object) {
+        UEmbedRecord(:final data) => data.toJson(),
+        UEmbedImages(:final data) => data.toJson(),
+        UEmbedExternal(:final data) => data.toJson(),
+        UEmbedRecordWithMedia(:final data) => data.toJson(),
+        UEmbedVideo(:final data) => data.toJson(),
+        UEmbedUnknown(:final data) => data,
+      };
 }

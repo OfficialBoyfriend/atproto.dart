@@ -37,9 +37,9 @@ final class _RelationshipConverter
   }
 
   @override
-  Map<String, dynamic> toJson(Relationship object) => object.when(
-        relationship: (data) => data.toJson(),
-        notFoundActor: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(Relationship object) => switch (object) {
+        URelationshipRelationship(:final data) => data.toJson(),
+        URelationshipNotFoundActor(:final data) => data.toJson(),
+        URelationshipUnknown(:final data) => data,
+      };
 }

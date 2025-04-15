@@ -42,10 +42,10 @@ final class _EmbedViewMediaConverter
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedViewMedia object) => object.when(
-        images: (data) => data.toJson(),
-        external: (data) => data.toJson(),
-        video: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(EmbedViewMedia object) => switch (object) {
+        UEmbedViewMediaImages(:final data) => data.toJson(),
+        UEmbedViewMediaExternal(:final data) => data.toJson(),
+        UEmbedViewMediaVideo(:final data) => data.toJson(),
+        UEmbedViewMediaUnknown(:final data) => data,
+      };
 }

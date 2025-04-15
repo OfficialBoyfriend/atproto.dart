@@ -21,7 +21,7 @@ part 'embed_view_record_view.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
-class EmbedViewRecordView with _$EmbedViewRecordView {
+sealed class EmbedViewRecordView with _$EmbedViewRecordView {
   const factory EmbedViewRecordView.record({
     required EmbedViewRecordViewRecord data,
   }) = UEmbedViewRecordViewRecord;

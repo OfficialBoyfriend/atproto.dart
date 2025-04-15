@@ -59,14 +59,14 @@ final class _SubscribedRepoConverter
   }
 
   @override
-  Map<String, dynamic> toJson(SubscribedRepo object) => object.when(
-        commit: (data) => data.toJson(),
-        identity: (data) => data.toJson(),
-        account: (data) => data.toJson(),
-        handle: (data) => data.toJson(),
-        migrate: (data) => data.toJson(),
-        tombstone: (data) => data.toJson(),
-        info: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(SubscribedRepo object) => switch (object) {
+        USubscribedRepoCommit(:final data) => data.toJson(),
+        USubscribedRepoIdentity(:final data) => data.toJson(),
+        USubscribedRepoAccount(:final data) => data.toJson(),
+        USubscribedRepoHandle(:final data) => data.toJson(),
+        USubscribedRepoMigrate(:final data) => data.toJson(),
+        USubscribedRepoTombstone(:final data) => data.toJson(),
+        USubscribedRepoInfo(:final data) => data.toJson(),
+        USubscribedRepoUnknown(:final data) => data,
+      };
 }

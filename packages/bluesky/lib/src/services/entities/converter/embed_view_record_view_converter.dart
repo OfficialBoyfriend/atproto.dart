@@ -67,15 +67,15 @@ final class _EmbedViewRecordViewConverter
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedViewRecordView object) => object.when(
-        record: (data) => data.toJson(),
-        notFound: (data) => data.toJson(),
-        blocked: (data) => data.toJson(),
-        viewDetached: (data) => data.toJson(),
-        generatorView: (data) => data.toJson(),
-        listView: (data) => data.toJson(),
-        labelerView: (data) => data.toJson(),
-        starterPackViewBasic: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(EmbedViewRecordView object) => switch (object) {
+        UEmbedViewRecordViewRecord(:final data) => data.toJson(),
+        UEmbedViewRecordViewNotFound(:final data) => data.toJson(),
+        UEmbedViewRecordViewBlocked(:final data) => data.toJson(),
+        UEmbedViewRecordViewViewDetached(:final data) => data.toJson(),
+        UEmbedViewRecordViewGeneratorView(:final data) => data.toJson(),
+        UEmbedViewRecordViewListView(:final data) => data.toJson(),
+        UEmbedViewRecordViewLabelerView(:final data) => data.toJson(),
+        UEmbedViewRecordViewStarterPackViewBasic(:final data) => data.toJson(),
+        UEmbedViewRecordViewUnknown(:final data) => data,
+      };
 }

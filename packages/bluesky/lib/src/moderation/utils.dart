@@ -180,6 +180,7 @@ extension PreferencesExtension on Preferences {
         case UPreferenceContentLabel():
           labelPrefs.add(preference.data);
           break;
+        default:
       }
     }
 

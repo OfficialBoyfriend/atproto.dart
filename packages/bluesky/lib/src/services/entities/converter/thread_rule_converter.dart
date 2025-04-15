@@ -46,11 +46,11 @@ final class _ThreadRuleConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadRule object) => object.when(
-        mention: (data) => data.toJson(),
-        following: (data) => data.toJson(),
-        followers: (data) => data.toJson(),
-        list: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(ThreadRule object) => switch (object) {
+        UThreadRuleMention(:final data) => data.toJson(),
+        UThreadRuleFollowing(:final data) => data.toJson(),
+        UThreadRuleFollower(:final data) => data.toJson(),
+        UThreadRuleList(:final data) => data.toJson(),
+        UThreadRuleUnknown(:final data) => data,
+      };
 }
