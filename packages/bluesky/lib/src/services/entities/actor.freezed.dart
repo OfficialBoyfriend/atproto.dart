@@ -22,6 +22,7 @@ mixin _$Actor {
   String? get avatar;
   ProfileAssociated? get associated;
   ActorViewer get viewer;
+  ActorVerification get verification;
   List<Label>? get labels;
   DateTime? get indexedAt;
 
@@ -50,6 +51,8 @@ mixin _$Actor {
             (identical(other.associated, associated) ||
                 other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            (identical(other.verification, verification) ||
+                other.verification == verification) &&
             const DeepCollectionEquality().equals(other.labels, labels) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
@@ -66,12 +69,13 @@ mixin _$Actor {
       avatar,
       associated,
       viewer,
+      verification,
       const DeepCollectionEquality().hash(labels),
       indexedAt);
 
   @override
   String toString() {
-    return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
+    return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, viewer: $viewer, verification: $verification, labels: $labels, indexedAt: $indexedAt)';
   }
 }
 
@@ -88,11 +92,13 @@ abstract mixin class $ActorCopyWith<$Res> {
       String? avatar,
       ProfileAssociated? associated,
       ActorViewer viewer,
+      ActorVerification verification,
       List<Label>? labels,
       DateTime? indexedAt});
 
   $ProfileAssociatedCopyWith<$Res>? get associated;
   $ActorViewerCopyWith<$Res> get viewer;
+  $ActorVerificationCopyWith<$Res> get verification;
 }
 
 /// @nodoc
@@ -114,6 +120,7 @@ class _$ActorCopyWithImpl<$Res> implements $ActorCopyWith<$Res> {
     Object? avatar = freezed,
     Object? associated = freezed,
     Object? viewer = null,
+    Object? verification = null,
     Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
@@ -146,6 +153,10 @@ class _$ActorCopyWithImpl<$Res> implements $ActorCopyWith<$Res> {
           ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
+      verification: null == verification
+          ? _self.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
       labels: freezed == labels
           ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -180,6 +191,16 @@ class _$ActorCopyWithImpl<$Res> implements $ActorCopyWith<$Res> {
       return _then(_self.copyWith(viewer: value));
     });
   }
+
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorVerificationCopyWith<$Res> get verification {
+    return $ActorVerificationCopyWith<$Res>(_self.verification, (value) {
+      return _then(_self.copyWith(verification: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -194,6 +215,7 @@ class _Actor extends Actor {
       this.avatar,
       this.associated,
       this.viewer = defaultActorViewer,
+      this.verification = defaultActorVerification,
       final List<Label>? labels,
       this.indexedAt})
       : _labels = labels,
@@ -215,6 +237,9 @@ class _Actor extends Actor {
   @override
   @JsonKey()
   final ActorViewer viewer;
+  @override
+  @JsonKey()
+  final ActorVerification verification;
   final List<Label>? _labels;
   @override
   List<Label>? get labels {
@@ -258,6 +283,8 @@ class _Actor extends Actor {
             (identical(other.associated, associated) ||
                 other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            (identical(other.verification, verification) ||
+                other.verification == verification) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
@@ -274,12 +301,13 @@ class _Actor extends Actor {
       avatar,
       associated,
       viewer,
+      verification,
       const DeepCollectionEquality().hash(_labels),
       indexedAt);
 
   @override
   String toString() {
-    return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
+    return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, viewer: $viewer, verification: $verification, labels: $labels, indexedAt: $indexedAt)';
   }
 }
 
@@ -297,6 +325,7 @@ abstract mixin class _$ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
       String? avatar,
       ProfileAssociated? associated,
       ActorViewer viewer,
+      ActorVerification verification,
       List<Label>? labels,
       DateTime? indexedAt});
 
@@ -304,6 +333,8 @@ abstract mixin class _$ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
   $ProfileAssociatedCopyWith<$Res>? get associated;
   @override
   $ActorViewerCopyWith<$Res> get viewer;
+  @override
+  $ActorVerificationCopyWith<$Res> get verification;
 }
 
 /// @nodoc
@@ -325,6 +356,7 @@ class __$ActorCopyWithImpl<$Res> implements _$ActorCopyWith<$Res> {
     Object? avatar = freezed,
     Object? associated = freezed,
     Object? viewer = null,
+    Object? verification = null,
     Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
@@ -357,6 +389,10 @@ class __$ActorCopyWithImpl<$Res> implements _$ActorCopyWith<$Res> {
           ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
+      verification: null == verification
+          ? _self.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
       labels: freezed == labels
           ? _self._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -389,6 +425,16 @@ class __$ActorCopyWithImpl<$Res> implements _$ActorCopyWith<$Res> {
   $ActorViewerCopyWith<$Res> get viewer {
     return $ActorViewerCopyWith<$Res>(_self.viewer, (value) {
       return _then(_self.copyWith(viewer: value));
+    });
+  }
+
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorVerificationCopyWith<$Res> get verification {
+    return $ActorVerificationCopyWith<$Res>(_self.verification, (value) {
+      return _then(_self.copyWith(verification: value));
     });
   }
 }

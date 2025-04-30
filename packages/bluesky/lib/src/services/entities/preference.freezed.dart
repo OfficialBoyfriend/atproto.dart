@@ -980,6 +980,84 @@ class _$UPreferencePostInteractionSettingsPrefCopyWithImpl<$Res>
 }
 
 /// @nodoc
+class UPreferenceVerificationPreference extends Preference {
+  const UPreferenceVerificationPreference({required this.data}) : super._();
+
+  @override
+  final VerificationPreference data;
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferenceVerificationPreferenceCopyWith<UPreferenceVerificationPreference>
+      get copyWith => _$UPreferenceVerificationPreferenceCopyWithImpl<
+          UPreferenceVerificationPreference>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UPreferenceVerificationPreference &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'Preference.verification(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UPreferenceVerificationPreferenceCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceVerificationPreferenceCopyWith(
+          UPreferenceVerificationPreference value,
+          $Res Function(UPreferenceVerificationPreference) _then) =
+      _$UPreferenceVerificationPreferenceCopyWithImpl;
+  @useResult
+  $Res call({VerificationPreference data});
+
+  $VerificationPreferenceCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class _$UPreferenceVerificationPreferenceCopyWithImpl<$Res>
+    implements $UPreferenceVerificationPreferenceCopyWith<$Res> {
+  _$UPreferenceVerificationPreferenceCopyWithImpl(this._self, this._then);
+
+  final UPreferenceVerificationPreference _self;
+  final $Res Function(UPreferenceVerificationPreference) _then;
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(UPreferenceVerificationPreference(
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as VerificationPreference,
+    ));
+  }
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VerificationPreferenceCopyWith<$Res> get data {
+    return $VerificationPreferenceCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
 
 class UPreferenceUnknown extends Preference {
   const UPreferenceUnknown({required final Map<String, dynamic> data})

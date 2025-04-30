@@ -26,6 +26,7 @@ mixin _$ActorProfile {
   int get postsCount;
   ProfileAssociated? get associated;
   ActorViewer get viewer;
+  ActorVerification get verification;
   List<Label>? get labels;
   DateTime? get createdAt;
   DateTime? get indexedAt;
@@ -64,6 +65,8 @@ mixin _$ActorProfile {
             (identical(other.associated, associated) ||
                 other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            (identical(other.verification, verification) ||
+                other.verification == verification) &&
             const DeepCollectionEquality().equals(other.labels, labels) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -88,6 +91,7 @@ mixin _$ActorProfile {
       postsCount,
       associated,
       viewer,
+      verification,
       const DeepCollectionEquality().hash(labels),
       createdAt,
       indexedAt,
@@ -95,7 +99,7 @@ mixin _$ActorProfile {
 
   @override
   String toString() {
-    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, associated: $associated, viewer: $viewer, labels: $labels, createdAt: $createdAt, indexedAt: $indexedAt, pinnedPost: $pinnedPost)';
+    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, associated: $associated, viewer: $viewer, verification: $verification, labels: $labels, createdAt: $createdAt, indexedAt: $indexedAt, pinnedPost: $pinnedPost)';
   }
 }
 
@@ -117,6 +121,7 @@ abstract mixin class $ActorProfileCopyWith<$Res> {
       int postsCount,
       ProfileAssociated? associated,
       ActorViewer viewer,
+      ActorVerification verification,
       List<Label>? labels,
       DateTime? createdAt,
       DateTime? indexedAt,
@@ -124,6 +129,7 @@ abstract mixin class $ActorProfileCopyWith<$Res> {
 
   $ProfileAssociatedCopyWith<$Res>? get associated;
   $ActorViewerCopyWith<$Res> get viewer;
+  $ActorVerificationCopyWith<$Res> get verification;
   $StrongRefCopyWith<$Res>? get pinnedPost;
 }
 
@@ -150,6 +156,7 @@ class _$ActorProfileCopyWithImpl<$Res> implements $ActorProfileCopyWith<$Res> {
     Object? postsCount = null,
     Object? associated = freezed,
     Object? viewer = null,
+    Object? verification = null,
     Object? labels = freezed,
     Object? createdAt = freezed,
     Object? indexedAt = freezed,
@@ -200,6 +207,10 @@ class _$ActorProfileCopyWithImpl<$Res> implements $ActorProfileCopyWith<$Res> {
           ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
+      verification: null == verification
+          ? _self.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
       labels: freezed == labels
           ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -247,6 +258,16 @@ class _$ActorProfileCopyWithImpl<$Res> implements $ActorProfileCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $ActorVerificationCopyWith<$Res> get verification {
+    return $ActorVerificationCopyWith<$Res>(_self.verification, (value) {
+      return _then(_self.copyWith(verification: value));
+    });
+  }
+
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StrongRefCopyWith<$Res>? get pinnedPost {
     if (_self.pinnedPost == null) {
       return null;
@@ -274,6 +295,7 @@ class _ActorProfile extends ActorProfile {
       this.postsCount = 0,
       this.associated,
       this.viewer = defaultActorViewer,
+      this.verification = defaultActorVerification,
       final List<Label>? labels,
       this.createdAt,
       this.indexedAt,
@@ -309,6 +331,9 @@ class _ActorProfile extends ActorProfile {
   @override
   @JsonKey()
   final ActorViewer viewer;
+  @override
+  @JsonKey()
+  final ActorVerification verification;
   final List<Label>? _labels;
   @override
   List<Label>? get labels {
@@ -363,6 +388,8 @@ class _ActorProfile extends ActorProfile {
             (identical(other.associated, associated) ||
                 other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            (identical(other.verification, verification) ||
+                other.verification == verification) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -387,6 +414,7 @@ class _ActorProfile extends ActorProfile {
       postsCount,
       associated,
       viewer,
+      verification,
       const DeepCollectionEquality().hash(_labels),
       createdAt,
       indexedAt,
@@ -394,7 +422,7 @@ class _ActorProfile extends ActorProfile {
 
   @override
   String toString() {
-    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, associated: $associated, viewer: $viewer, labels: $labels, createdAt: $createdAt, indexedAt: $indexedAt, pinnedPost: $pinnedPost)';
+    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, associated: $associated, viewer: $viewer, verification: $verification, labels: $labels, createdAt: $createdAt, indexedAt: $indexedAt, pinnedPost: $pinnedPost)';
   }
 }
 
@@ -418,6 +446,7 @@ abstract mixin class _$ActorProfileCopyWith<$Res>
       int postsCount,
       ProfileAssociated? associated,
       ActorViewer viewer,
+      ActorVerification verification,
       List<Label>? labels,
       DateTime? createdAt,
       DateTime? indexedAt,
@@ -427,6 +456,8 @@ abstract mixin class _$ActorProfileCopyWith<$Res>
   $ProfileAssociatedCopyWith<$Res>? get associated;
   @override
   $ActorViewerCopyWith<$Res> get viewer;
+  @override
+  $ActorVerificationCopyWith<$Res> get verification;
   @override
   $StrongRefCopyWith<$Res>? get pinnedPost;
 }
@@ -455,6 +486,7 @@ class __$ActorProfileCopyWithImpl<$Res>
     Object? postsCount = null,
     Object? associated = freezed,
     Object? viewer = null,
+    Object? verification = null,
     Object? labels = freezed,
     Object? createdAt = freezed,
     Object? indexedAt = freezed,
@@ -505,6 +537,10 @@ class __$ActorProfileCopyWithImpl<$Res>
           ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
+      verification: null == verification
+          ? _self.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
       labels: freezed == labels
           ? _self._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -545,6 +581,16 @@ class __$ActorProfileCopyWithImpl<$Res>
   $ActorViewerCopyWith<$Res> get viewer {
     return $ActorViewerCopyWith<$Res>(_self.viewer, (value) {
       return _then(_self.copyWith(viewer: value));
+    });
+  }
+
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorVerificationCopyWith<$Res> get verification {
+    return $ActorVerificationCopyWith<$Res>(_self.verification, (value) {
+      return _then(_self.copyWith(verification: value));
     });
   }
 

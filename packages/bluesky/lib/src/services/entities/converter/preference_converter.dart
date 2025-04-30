@@ -17,6 +17,7 @@ import '../preference.dart';
 import '../saved_feeds_pref_v2.dart';
 import '../saved_feeds_preference.dart';
 import '../thread_view_preference.dart';
+import '../verification_preference.dart';
 
 const preferenceConverter = _PreferenceConverter();
 
@@ -77,6 +78,10 @@ final class _PreferenceConverter
         return Preference.postInteractionSettingsPref(
           data: PostInteractionSettingsPref.fromJson(json),
         );
+      } else if (type == ids.appBskyActorDefsVerificationPrefs) {
+        return Preference.verification(
+          data: VerificationPreference.fromJson(json),
+        );
       }
 
       return Preference.unknown(data: json);
@@ -99,6 +104,7 @@ final class _PreferenceConverter
         UPreferenceHiddenPosts(:final data) => data.toJson(),
         UPreferenceLabelersPref(:final data) => data.toJson(),
         UPreferencePostInteractionSettingsPref(:final data) => data.toJson(),
+        UPreferenceVerificationPreference(:final data) => data.toJson(),
         UPreferenceUnknown(:final data) => data,
       };
 }
