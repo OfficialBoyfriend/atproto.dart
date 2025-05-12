@@ -13,7 +13,7 @@ import 'service_suite.dart';
 
 void main() {
   testActor<Actors>(
-    (m, s) => s.searchActors(term: m.query),
+    (m, s) => s.searchActors(q: m.query),
     id: appBskyActorSearchActors,
   );
 
@@ -34,7 +34,7 @@ void main() {
 
   testActor<ActorsTypeahead>(
     (m, s) => s.searchActorsTypeahead(
-      term: m.query,
+      q: m.query,
       limit: m.limit,
     ),
     id: appBskyActorSearchActorsTypeahead,

@@ -980,6 +980,7 @@ class _$UPreferencePostInteractionSettingsPrefCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class UPreferenceVerificationPreference extends Preference {
   const UPreferenceVerificationPreference({required this.data}) : super._();
 

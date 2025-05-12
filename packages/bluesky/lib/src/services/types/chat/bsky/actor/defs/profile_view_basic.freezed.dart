@@ -23,6 +23,7 @@ mixin _$ProfileViewBasic {
   ActorViewer get viewer;
   List<Label>? get labels;
   bool get chatDisabled;
+  ActorVerification get verification;
 
   /// Create a copy of ProfileViewBasic
   /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +51,9 @@ mixin _$ProfileViewBasic {
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             const DeepCollectionEquality().equals(other.labels, labels) &&
             (identical(other.chatDisabled, chatDisabled) ||
-                other.chatDisabled == chatDisabled));
+                other.chatDisabled == chatDisabled) &&
+            (identical(other.verification, verification) ||
+                other.verification == verification));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -64,11 +67,12 @@ mixin _$ProfileViewBasic {
       associated,
       viewer,
       const DeepCollectionEquality().hash(labels),
-      chatDisabled);
+      chatDisabled,
+      verification);
 
   @override
   String toString() {
-    return 'ProfileViewBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, chatDisabled: $chatDisabled)';
+    return 'ProfileViewBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, chatDisabled: $chatDisabled, verification: $verification)';
   }
 }
 
@@ -86,10 +90,12 @@ abstract mixin class $ProfileViewBasicCopyWith<$Res> {
       ProfileAssociated? associated,
       ActorViewer viewer,
       List<Label>? labels,
-      bool chatDisabled});
+      bool chatDisabled,
+      ActorVerification verification});
 
   $ProfileAssociatedCopyWith<$Res>? get associated;
   $ActorViewerCopyWith<$Res> get viewer;
+  $ActorVerificationCopyWith<$Res> get verification;
 }
 
 /// @nodoc
@@ -113,6 +119,7 @@ class _$ProfileViewBasicCopyWithImpl<$Res>
     Object? viewer = null,
     Object? labels = freezed,
     Object? chatDisabled = null,
+    Object? verification = null,
   }) {
     return _then(_self.copyWith(
       did: null == did
@@ -147,6 +154,10 @@ class _$ProfileViewBasicCopyWithImpl<$Res>
           ? _self.chatDisabled
           : chatDisabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      verification: null == verification
+          ? _self.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
     ));
   }
 
@@ -173,6 +184,16 @@ class _$ProfileViewBasicCopyWithImpl<$Res>
       return _then(_self.copyWith(viewer: value));
     });
   }
+
+  /// Create a copy of ProfileViewBasic
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorVerificationCopyWith<$Res> get verification {
+    return $ActorVerificationCopyWith<$Res>(_self.verification, (value) {
+      return _then(_self.copyWith(verification: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -187,7 +208,8 @@ class _ProfileViewBasic implements ProfileViewBasic {
       this.associated,
       this.viewer = const ActorViewer(),
       final List<Label>? labels,
-      this.chatDisabled = false})
+      this.chatDisabled = false,
+      this.verification = defaultActorVerification})
       : _labels = labels;
   factory _ProfileViewBasic.fromJson(Map<String, dynamic> json) =>
       _$ProfileViewBasicFromJson(json);
@@ -218,6 +240,9 @@ class _ProfileViewBasic implements ProfileViewBasic {
   @override
   @JsonKey()
   final bool chatDisabled;
+  @override
+  @JsonKey()
+  final ActorVerification verification;
 
   /// Create a copy of ProfileViewBasic
   /// with the given fields replaced by the non-null parameter values.
@@ -249,7 +274,9 @@ class _ProfileViewBasic implements ProfileViewBasic {
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.chatDisabled, chatDisabled) ||
-                other.chatDisabled == chatDisabled));
+                other.chatDisabled == chatDisabled) &&
+            (identical(other.verification, verification) ||
+                other.verification == verification));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -263,11 +290,12 @@ class _ProfileViewBasic implements ProfileViewBasic {
       associated,
       viewer,
       const DeepCollectionEquality().hash(_labels),
-      chatDisabled);
+      chatDisabled,
+      verification);
 
   @override
   String toString() {
-    return 'ProfileViewBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, chatDisabled: $chatDisabled)';
+    return 'ProfileViewBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, chatDisabled: $chatDisabled, verification: $verification)';
   }
 }
 
@@ -287,12 +315,15 @@ abstract mixin class _$ProfileViewBasicCopyWith<$Res>
       ProfileAssociated? associated,
       ActorViewer viewer,
       List<Label>? labels,
-      bool chatDisabled});
+      bool chatDisabled,
+      ActorVerification verification});
 
   @override
   $ProfileAssociatedCopyWith<$Res>? get associated;
   @override
   $ActorViewerCopyWith<$Res> get viewer;
+  @override
+  $ActorVerificationCopyWith<$Res> get verification;
 }
 
 /// @nodoc
@@ -316,6 +347,7 @@ class __$ProfileViewBasicCopyWithImpl<$Res>
     Object? viewer = null,
     Object? labels = freezed,
     Object? chatDisabled = null,
+    Object? verification = null,
   }) {
     return _then(_ProfileViewBasic(
       did: null == did
@@ -350,6 +382,10 @@ class __$ProfileViewBasicCopyWithImpl<$Res>
           ? _self.chatDisabled
           : chatDisabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      verification: null == verification
+          ? _self.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
     ));
   }
 
@@ -374,6 +410,16 @@ class __$ProfileViewBasicCopyWithImpl<$Res>
   $ActorViewerCopyWith<$Res> get viewer {
     return $ActorViewerCopyWith<$Res>(_self.viewer, (value) {
       return _then(_self.copyWith(viewer: value));
+    });
+  }
+
+  /// Create a copy of ProfileViewBasic
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorVerificationCopyWith<$Res> get verification {
+    return $ActorVerificationCopyWith<$Res>(_self.verification, (value) {
+      return _then(_self.copyWith(verification: value));
     });
   }
 }

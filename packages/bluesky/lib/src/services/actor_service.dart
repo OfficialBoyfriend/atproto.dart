@@ -22,7 +22,7 @@ final class ActorService {
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors
   Future<core.XRPCResponse<Actors>> searchActors({
-    required String term,
+    required String q,
     int? limit,
     String? cursor,
     Map<String, String>? headers,
@@ -31,7 +31,7 @@ final class ActorService {
         ns.appBskyActorSearchActors,
         headers: headers,
         parameters: {
-          'q': term,
+          'q': q,
           'limit': limit,
           'cursor': cursor,
         },
@@ -84,7 +84,7 @@ final class ActorService {
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
   Future<core.XRPCResponse<ActorsTypeahead>> searchActorsTypeahead({
-    required String term,
+    required String q,
     int? limit,
     Map<String, String>? headers,
   }) async =>
@@ -92,7 +92,7 @@ final class ActorService {
         ns.appBskyActorSearchActorsTypeahead,
         headers: headers,
         parameters: {
-          'q': term,
+          'q': q,
           'limit': limit,
         },
         to: ActorsTypeahead.fromJson,

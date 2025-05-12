@@ -36,6 +36,12 @@ _ProfileViewBasic _$ProfileViewBasicFromJson(Map json) => $checkedCreate(
                   .toList()),
           chatDisabled:
               $checkedConvert('chatDisabled', (v) => v as bool? ?? false),
+          verification: $checkedConvert(
+              'verification',
+              (v) => v == null
+                  ? defaultActorVerification
+                  : ActorVerification.fromJson(
+                      Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
@@ -52,4 +58,5 @@ Map<String, dynamic> _$ProfileViewBasicToJson(_ProfileViewBasic instance) =>
       if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
         'labels': value,
       'chatDisabled': instance.chatDisabled,
+      'verification': instance.verification.toJson(),
     };

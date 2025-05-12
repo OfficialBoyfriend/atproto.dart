@@ -6,7 +6,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import '../../../../../entities/actor_verification.dart';
 import '../../../../../entities/actor_viewer.dart';
+import '../../../../../entities/defaults.dart';
 import '../../../../../entities/profile_associated.dart';
 
 part 'profile_view_basic.freezed.dart';
@@ -25,6 +27,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     @Default(ActorViewer()) ActorViewer viewer,
     List<Label>? labels,
     @Default(false) bool chatDisabled,
+    @Default(defaultActorVerification) ActorVerification verification,
   }) = _ProfileViewBasic;
 
   factory ProfileViewBasic.fromJson(Map<String, Object?> json) =>

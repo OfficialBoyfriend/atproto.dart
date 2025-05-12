@@ -19,6 +19,10 @@ import 'convo/sendMessageBatch/output.dart';
 import 'convo/unmuteConvo/output.dart';
 import 'convo/updateRead/output.dart';
 
+enum ConvoReadState { unread }
+
+enum ConvoStatus { request, accepted }
+
 /// Represents `chat.bsky.convo.*` service.
 final class ConvoService {
   ConvoService(this._ctx);
@@ -107,12 +111,16 @@ final class ConvoService {
   Future<core.XRPCResponse<ListConvosOutput>> listConvos({
     int? limit,
     String? cursor,
+    ConvoReadState? readState,
+    ConvoStatus? status,
   }) async =>
       await _ctx.get(
         ns.chatBskyConvoListConvos,
         parameters: {
           'limit': limit,
           'cursor': cursor,
+          'readState': readState?.name,
+          'status': status?.name,
         },
         to: ListConvosOutput.fromJson,
       );
