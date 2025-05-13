@@ -4,6 +4,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
+import 'convo/acceptConvo/output.dart';
 import 'convo/defs/deleted_message_view.dart';
 import 'convo/defs/message_input.dart';
 import 'convo/defs/message_view.dart';
@@ -105,6 +106,18 @@ final class ConvoService {
           'convoId': convoId,
         },
         to: LeaveConvoOutput.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/acceptConvo
+  Future<core.XRPCResponse<AcceptConvoOutput>> acceptConvo({
+    required String convoId,
+  }) async =>
+      await _ctx.post(
+        ns.chatBskyConvoAcceptConvo,
+        parameters: {
+          'convoId': convoId,
+        },
+        to: AcceptConvoOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/listConvos
