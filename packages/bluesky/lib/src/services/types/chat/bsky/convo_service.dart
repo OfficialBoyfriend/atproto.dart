@@ -6,6 +6,8 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import 'convo/acceptConvo/output.dart';
 import 'convo/defs/deleted_message_view.dart';
+import 'convo/defs/enum/convo_read_state.dart';
+import 'convo/defs/enum/convo_status.dart';
 import 'convo/defs/message_input.dart';
 import 'convo/defs/message_view.dart';
 import 'convo/getConvo/output.dart';
@@ -19,10 +21,6 @@ import 'convo/sendMessageBatch/batch_item.dart';
 import 'convo/sendMessageBatch/output.dart';
 import 'convo/unmuteConvo/output.dart';
 import 'convo/updateRead/output.dart';
-
-enum ConvoReadState { unread }
-
-enum ConvoStatus { request, accepted }
 
 /// Represents `chat.bsky.convo.*` service.
 final class ConvoService {

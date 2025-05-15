@@ -11,3 +11,6 @@ export 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_input.da
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/union/log.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/union/message_embed.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/union/message_view.dart';
+export 'package:bluesky/src/services/types/chat/bsky/convo/defs/union/message_and_reaction_view.dart';
+export 'package:bluesky/src/services/types/chat/bsky/convo/defs/enum/convo_read_state.dart';
+export 'package:bluesky/src/services/types/chat/bsky/convo/defs/enum/convo_status.dart';

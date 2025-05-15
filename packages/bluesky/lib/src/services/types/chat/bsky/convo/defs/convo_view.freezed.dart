@@ -20,8 +20,10 @@ mixin _$ConvoView {
   List<ProfileViewBasic> get members;
   @unionConvoMessageViewConverter
   UConvoMessageView? get lastMessage;
+  @unionConvoMessageAndReactionViewConverter
+  UConvoMessageAndReactionView? get lastReaction;
   bool get muted;
-  bool get opened;
+  ConvoStatus? get status;
   int get unreadCount;
 
   /// Create a copy of ConvoView
@@ -44,8 +46,10 @@ mixin _$ConvoView {
             const DeepCollectionEquality().equals(other.members, members) &&
             (identical(other.lastMessage, lastMessage) ||
                 other.lastMessage == lastMessage) &&
+            (identical(other.lastReaction, lastReaction) ||
+                other.lastReaction == lastReaction) &&
             (identical(other.muted, muted) || other.muted == muted) &&
-            (identical(other.opened, opened) || other.opened == opened) &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.unreadCount, unreadCount) ||
                 other.unreadCount == unreadCount));
   }
@@ -58,13 +62,14 @@ mixin _$ConvoView {
       rev,
       const DeepCollectionEquality().hash(members),
       lastMessage,
+      lastReaction,
       muted,
-      opened,
+      status,
       unreadCount);
 
   @override
   String toString() {
-    return 'ConvoView(id: $id, rev: $rev, members: $members, lastMessage: $lastMessage, muted: $muted, opened: $opened, unreadCount: $unreadCount)';
+    return 'ConvoView(id: $id, rev: $rev, members: $members, lastMessage: $lastMessage, lastReaction: $lastReaction, muted: $muted, status: $status, unreadCount: $unreadCount)';
   }
 }
 
@@ -78,11 +83,14 @@ abstract mixin class $ConvoViewCopyWith<$Res> {
       String rev,
       List<ProfileViewBasic> members,
       @unionConvoMessageViewConverter UConvoMessageView? lastMessage,
+      @unionConvoMessageAndReactionViewConverter
+      UConvoMessageAndReactionView? lastReaction,
       bool muted,
-      bool opened,
+      ConvoStatus? status,
       int unreadCount});
 
   $UConvoMessageViewCopyWith<$Res>? get lastMessage;
+  $UConvoMessageAndReactionViewCopyWith<$Res>? get lastReaction;
 }
 
 /// @nodoc
@@ -101,8 +109,9 @@ class _$ConvoViewCopyWithImpl<$Res> implements $ConvoViewCopyWith<$Res> {
     Object? rev = null,
     Object? members = null,
     Object? lastMessage = freezed,
+    Object? lastReaction = freezed,
     Object? muted = null,
-    Object? opened = null,
+    Object? status = freezed,
     Object? unreadCount = null,
   }) {
     return _then(_self.copyWith(
@@ -122,14 +131,18 @@ class _$ConvoViewCopyWithImpl<$Res> implements $ConvoViewCopyWith<$Res> {
           ? _self.lastMessage
           : lastMessage // ignore: cast_nullable_to_non_nullable
               as UConvoMessageView?,
+      lastReaction: freezed == lastReaction
+          ? _self.lastReaction
+          : lastReaction // ignore: cast_nullable_to_non_nullable
+              as UConvoMessageAndReactionView?,
       muted: null == muted
           ? _self.muted
           : muted // ignore: cast_nullable_to_non_nullable
               as bool,
-      opened: null == opened
-          ? _self.opened
-          : opened // ignore: cast_nullable_to_non_nullable
-              as bool,
+      status: freezed == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as ConvoStatus?,
       unreadCount: null == unreadCount
           ? _self.unreadCount
           : unreadCount // ignore: cast_nullable_to_non_nullable
@@ -150,6 +163,21 @@ class _$ConvoViewCopyWithImpl<$Res> implements $ConvoViewCopyWith<$Res> {
       return _then(_self.copyWith(lastMessage: value));
     });
   }
+
+  /// Create a copy of ConvoView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UConvoMessageAndReactionViewCopyWith<$Res>? get lastReaction {
+    if (_self.lastReaction == null) {
+      return null;
+    }
+
+    return $UConvoMessageAndReactionViewCopyWith<$Res>(_self.lastReaction!,
+        (value) {
+      return _then(_self.copyWith(lastReaction: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -161,8 +189,9 @@ class _ConvoView implements ConvoView {
       required this.rev,
       required final List<ProfileViewBasic> members,
       @unionConvoMessageViewConverter this.lastMessage,
+      @unionConvoMessageAndReactionViewConverter this.lastReaction,
       required this.muted,
-      this.opened = false,
+      this.status,
       required this.unreadCount})
       : _members = members;
   factory _ConvoView.fromJson(Map<String, dynamic> json) =>
@@ -184,10 +213,12 @@ class _ConvoView implements ConvoView {
   @unionConvoMessageViewConverter
   final UConvoMessageView? lastMessage;
   @override
+  @unionConvoMessageAndReactionViewConverter
+  final UConvoMessageAndReactionView? lastReaction;
+  @override
   final bool muted;
   @override
-  @JsonKey()
-  final bool opened;
+  final ConvoStatus? status;
   @override
   final int unreadCount;
 
@@ -216,8 +247,10 @@ class _ConvoView implements ConvoView {
             const DeepCollectionEquality().equals(other._members, _members) &&
             (identical(other.lastMessage, lastMessage) ||
                 other.lastMessage == lastMessage) &&
+            (identical(other.lastReaction, lastReaction) ||
+                other.lastReaction == lastReaction) &&
             (identical(other.muted, muted) || other.muted == muted) &&
-            (identical(other.opened, opened) || other.opened == opened) &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.unreadCount, unreadCount) ||
                 other.unreadCount == unreadCount));
   }
@@ -230,13 +263,14 @@ class _ConvoView implements ConvoView {
       rev,
       const DeepCollectionEquality().hash(_members),
       lastMessage,
+      lastReaction,
       muted,
-      opened,
+      status,
       unreadCount);
 
   @override
   String toString() {
-    return 'ConvoView(id: $id, rev: $rev, members: $members, lastMessage: $lastMessage, muted: $muted, opened: $opened, unreadCount: $unreadCount)';
+    return 'ConvoView(id: $id, rev: $rev, members: $members, lastMessage: $lastMessage, lastReaction: $lastReaction, muted: $muted, status: $status, unreadCount: $unreadCount)';
   }
 }
 
@@ -253,12 +287,16 @@ abstract mixin class _$ConvoViewCopyWith<$Res>
       String rev,
       List<ProfileViewBasic> members,
       @unionConvoMessageViewConverter UConvoMessageView? lastMessage,
+      @unionConvoMessageAndReactionViewConverter
+      UConvoMessageAndReactionView? lastReaction,
       bool muted,
-      bool opened,
+      ConvoStatus? status,
       int unreadCount});
 
   @override
   $UConvoMessageViewCopyWith<$Res>? get lastMessage;
+  @override
+  $UConvoMessageAndReactionViewCopyWith<$Res>? get lastReaction;
 }
 
 /// @nodoc
@@ -277,8 +315,9 @@ class __$ConvoViewCopyWithImpl<$Res> implements _$ConvoViewCopyWith<$Res> {
     Object? rev = null,
     Object? members = null,
     Object? lastMessage = freezed,
+    Object? lastReaction = freezed,
     Object? muted = null,
-    Object? opened = null,
+    Object? status = freezed,
     Object? unreadCount = null,
   }) {
     return _then(_ConvoView(
@@ -298,14 +337,18 @@ class __$ConvoViewCopyWithImpl<$Res> implements _$ConvoViewCopyWith<$Res> {
           ? _self.lastMessage
           : lastMessage // ignore: cast_nullable_to_non_nullable
               as UConvoMessageView?,
+      lastReaction: freezed == lastReaction
+          ? _self.lastReaction
+          : lastReaction // ignore: cast_nullable_to_non_nullable
+              as UConvoMessageAndReactionView?,
       muted: null == muted
           ? _self.muted
           : muted // ignore: cast_nullable_to_non_nullable
               as bool,
-      opened: null == opened
-          ? _self.opened
-          : opened // ignore: cast_nullable_to_non_nullable
-              as bool,
+      status: freezed == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as ConvoStatus?,
       unreadCount: null == unreadCount
           ? _self.unreadCount
           : unreadCount // ignore: cast_nullable_to_non_nullable
@@ -324,6 +367,21 @@ class __$ConvoViewCopyWithImpl<$Res> implements _$ConvoViewCopyWith<$Res> {
 
     return $UConvoMessageViewCopyWith<$Res>(_self.lastMessage!, (value) {
       return _then(_self.copyWith(lastMessage: value));
+    });
+  }
+
+  /// Create a copy of ConvoView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UConvoMessageAndReactionViewCopyWith<$Res>? get lastReaction {
+    if (_self.lastReaction == null) {
+      return null;
+    }
+
+    return $UConvoMessageAndReactionViewCopyWith<$Res>(_self.lastReaction!,
+        (value) {
+      return _then(_self.copyWith(lastReaction: value));
     });
   }
 }

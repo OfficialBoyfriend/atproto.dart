@@ -26,8 +26,14 @@ _ConvoView _$ConvoViewFromJson(Map json) => $checkedCreate(
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
                       UConvoMessageView>(
                   v, unionConvoMessageViewConverter.fromJson)),
+          lastReaction: $checkedConvert(
+              'lastReaction',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UConvoMessageAndReactionView>(
+                  v, unionConvoMessageAndReactionViewConverter.fromJson)),
           muted: $checkedConvert('muted', (v) => v as bool),
-          opened: $checkedConvert('opened', (v) => v as bool? ?? false),
+          status: $checkedConvert(
+              'status', (v) => $enumDecodeNullable(_$ConvoStatusEnumMap, v)),
           unreadCount:
               $checkedConvert('unreadCount', (v) => (v as num).toInt()),
         );
@@ -44,8 +50,14 @@ Map<String, dynamic> _$ConvoViewToJson(_ConvoView instance) =>
               instance.lastMessage, unionConvoMessageViewConverter.toJson)
           case final value?)
         'lastMessage': value,
+      if (_$JsonConverterToJson<Map<String, dynamic>,
+                  UConvoMessageAndReactionView>(instance.lastReaction,
+              unionConvoMessageAndReactionViewConverter.toJson)
+          case final value?)
+        'lastReaction': value,
       'muted': instance.muted,
-      'opened': instance.opened,
+      if (_$ConvoStatusEnumMap[instance.status] case final value?)
+        'status': value,
       'unreadCount': instance.unreadCount,
     };
 
@@ -54,6 +66,11 @@ Value? _$JsonConverterFromJson<Json, Value>(
   Value? Function(Json json) fromJson,
 ) =>
     json == null ? null : fromJson(json as Json);
+
+const _$ConvoStatusEnumMap = {
+  ConvoStatus.request: 'request',
+  ConvoStatus.accepted: 'accepted',
+};
 
 Json? _$JsonConverterToJson<Json, Value>(
   Value? value,

@@ -4,6 +4,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../actor/defs/profile_view_basic.dart';
+import 'enum/convo_status.dart';
+import 'union/message_and_reaction_view.dart';
 import 'union/message_view.dart';
 
 part 'convo_view.freezed.dart';
@@ -18,8 +20,10 @@ abstract class ConvoView with _$ConvoView {
     required String rev,
     required List<ProfileViewBasic> members,
     @unionConvoMessageViewConverter UConvoMessageView? lastMessage,
+    @unionConvoMessageAndReactionViewConverter
+    UConvoMessageAndReactionView? lastReaction,
     required bool muted,
-    @Default(false) bool opened,
+    ConvoStatus? status,
     required int unreadCount,
   }) = _ConvoView;
 
