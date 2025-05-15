@@ -121,6 +121,85 @@ class _$UConvoLogConvoLogBeginConvoCopyWithImpl<$Res>
 
 /// @nodoc
 
+class UConvoLogConvoLogAcceptConvo extends UConvoLog {
+  const UConvoLogConvoLogAcceptConvo({required this.data}) : super._();
+
+  @override
+  final LogAcceptConvo data;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UConvoLogConvoLogAcceptConvoCopyWith<UConvoLogConvoLogAcceptConvo>
+      get copyWith => _$UConvoLogConvoLogAcceptConvoCopyWithImpl<
+          UConvoLogConvoLogAcceptConvo>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UConvoLogConvoLogAcceptConvo &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'UConvoLog.logAcceptConvo(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UConvoLogConvoLogAcceptConvoCopyWith<$Res>
+    implements $UConvoLogCopyWith<$Res> {
+  factory $UConvoLogConvoLogAcceptConvoCopyWith(
+          UConvoLogConvoLogAcceptConvo value,
+          $Res Function(UConvoLogConvoLogAcceptConvo) _then) =
+      _$UConvoLogConvoLogAcceptConvoCopyWithImpl;
+  @useResult
+  $Res call({LogAcceptConvo data});
+
+  $LogAcceptConvoCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class _$UConvoLogConvoLogAcceptConvoCopyWithImpl<$Res>
+    implements $UConvoLogConvoLogAcceptConvoCopyWith<$Res> {
+  _$UConvoLogConvoLogAcceptConvoCopyWithImpl(this._self, this._then);
+
+  final UConvoLogConvoLogAcceptConvo _self;
+  final $Res Function(UConvoLogConvoLogAcceptConvo) _then;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(UConvoLogConvoLogAcceptConvo(
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as LogAcceptConvo,
+    ));
+  }
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LogAcceptConvoCopyWith<$Res> get data {
+    return $LogAcceptConvoCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
 class UConvoLogConvoLogLeaveConvo extends UConvoLog {
   const UConvoLogConvoLogLeaveConvo({required this.data}) : super._();
 
@@ -193,6 +272,164 @@ class _$UConvoLogConvoLogLeaveConvoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   $LogLeaveConvoCopyWith<$Res> get data {
     return $LogLeaveConvoCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class UConvoLogConvoLogMuteConvo extends UConvoLog {
+  const UConvoLogConvoLogMuteConvo({required this.data}) : super._();
+
+  @override
+  final LogMuteConvo data;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UConvoLogConvoLogMuteConvoCopyWith<UConvoLogConvoLogMuteConvo>
+      get copyWith =>
+          _$UConvoLogConvoLogMuteConvoCopyWithImpl<UConvoLogConvoLogMuteConvo>(
+              this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UConvoLogConvoLogMuteConvo &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'UConvoLog.logMuteConvo(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UConvoLogConvoLogMuteConvoCopyWith<$Res>
+    implements $UConvoLogCopyWith<$Res> {
+  factory $UConvoLogConvoLogMuteConvoCopyWith(UConvoLogConvoLogMuteConvo value,
+          $Res Function(UConvoLogConvoLogMuteConvo) _then) =
+      _$UConvoLogConvoLogMuteConvoCopyWithImpl;
+  @useResult
+  $Res call({LogMuteConvo data});
+
+  $LogMuteConvoCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class _$UConvoLogConvoLogMuteConvoCopyWithImpl<$Res>
+    implements $UConvoLogConvoLogMuteConvoCopyWith<$Res> {
+  _$UConvoLogConvoLogMuteConvoCopyWithImpl(this._self, this._then);
+
+  final UConvoLogConvoLogMuteConvo _self;
+  final $Res Function(UConvoLogConvoLogMuteConvo) _then;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(UConvoLogConvoLogMuteConvo(
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as LogMuteConvo,
+    ));
+  }
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LogMuteConvoCopyWith<$Res> get data {
+    return $LogMuteConvoCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class UConvoLogConvoLogUnmuteConvo extends UConvoLog {
+  const UConvoLogConvoLogUnmuteConvo({required this.data}) : super._();
+
+  @override
+  final LogUnmuteConvo data;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UConvoLogConvoLogUnmuteConvoCopyWith<UConvoLogConvoLogUnmuteConvo>
+      get copyWith => _$UConvoLogConvoLogUnmuteConvoCopyWithImpl<
+          UConvoLogConvoLogUnmuteConvo>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UConvoLogConvoLogUnmuteConvo &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'UConvoLog.logUnmuteConvo(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UConvoLogConvoLogUnmuteConvoCopyWith<$Res>
+    implements $UConvoLogCopyWith<$Res> {
+  factory $UConvoLogConvoLogUnmuteConvoCopyWith(
+          UConvoLogConvoLogUnmuteConvo value,
+          $Res Function(UConvoLogConvoLogUnmuteConvo) _then) =
+      _$UConvoLogConvoLogUnmuteConvoCopyWithImpl;
+  @useResult
+  $Res call({LogUnmuteConvo data});
+
+  $LogUnmuteConvoCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class _$UConvoLogConvoLogUnmuteConvoCopyWithImpl<$Res>
+    implements $UConvoLogConvoLogUnmuteConvoCopyWith<$Res> {
+  _$UConvoLogConvoLogUnmuteConvoCopyWithImpl(this._self, this._then);
+
+  final UConvoLogConvoLogUnmuteConvo _self;
+  final $Res Function(UConvoLogConvoLogUnmuteConvo) _then;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(UConvoLogConvoLogUnmuteConvo(
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as LogUnmuteConvo,
+    ));
+  }
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LogUnmuteConvoCopyWith<$Res> get data {
+    return $LogUnmuteConvoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -351,6 +588,243 @@ class _$UConvoLogConvoLogDeleteMessageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   $LogDeleteMessageCopyWith<$Res> get data {
     return $LogDeleteMessageCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class UConvoLogConvoLogReadMessage extends UConvoLog {
+  const UConvoLogConvoLogReadMessage({required this.data}) : super._();
+
+  @override
+  final LogReadMessage data;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UConvoLogConvoLogReadMessageCopyWith<UConvoLogConvoLogReadMessage>
+      get copyWith => _$UConvoLogConvoLogReadMessageCopyWithImpl<
+          UConvoLogConvoLogReadMessage>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UConvoLogConvoLogReadMessage &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'UConvoLog.logReadMessage(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UConvoLogConvoLogReadMessageCopyWith<$Res>
+    implements $UConvoLogCopyWith<$Res> {
+  factory $UConvoLogConvoLogReadMessageCopyWith(
+          UConvoLogConvoLogReadMessage value,
+          $Res Function(UConvoLogConvoLogReadMessage) _then) =
+      _$UConvoLogConvoLogReadMessageCopyWithImpl;
+  @useResult
+  $Res call({LogReadMessage data});
+
+  $LogReadMessageCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class _$UConvoLogConvoLogReadMessageCopyWithImpl<$Res>
+    implements $UConvoLogConvoLogReadMessageCopyWith<$Res> {
+  _$UConvoLogConvoLogReadMessageCopyWithImpl(this._self, this._then);
+
+  final UConvoLogConvoLogReadMessage _self;
+  final $Res Function(UConvoLogConvoLogReadMessage) _then;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(UConvoLogConvoLogReadMessage(
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as LogReadMessage,
+    ));
+  }
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LogReadMessageCopyWith<$Res> get data {
+    return $LogReadMessageCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class UConvoLogConvoLogAddReaction extends UConvoLog {
+  const UConvoLogConvoLogAddReaction({required this.data}) : super._();
+
+  @override
+  final LogAddReaction data;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UConvoLogConvoLogAddReactionCopyWith<UConvoLogConvoLogAddReaction>
+      get copyWith => _$UConvoLogConvoLogAddReactionCopyWithImpl<
+          UConvoLogConvoLogAddReaction>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UConvoLogConvoLogAddReaction &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'UConvoLog.logAddReaction(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UConvoLogConvoLogAddReactionCopyWith<$Res>
+    implements $UConvoLogCopyWith<$Res> {
+  factory $UConvoLogConvoLogAddReactionCopyWith(
+          UConvoLogConvoLogAddReaction value,
+          $Res Function(UConvoLogConvoLogAddReaction) _then) =
+      _$UConvoLogConvoLogAddReactionCopyWithImpl;
+  @useResult
+  $Res call({LogAddReaction data});
+
+  $LogAddReactionCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class _$UConvoLogConvoLogAddReactionCopyWithImpl<$Res>
+    implements $UConvoLogConvoLogAddReactionCopyWith<$Res> {
+  _$UConvoLogConvoLogAddReactionCopyWithImpl(this._self, this._then);
+
+  final UConvoLogConvoLogAddReaction _self;
+  final $Res Function(UConvoLogConvoLogAddReaction) _then;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(UConvoLogConvoLogAddReaction(
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as LogAddReaction,
+    ));
+  }
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LogAddReactionCopyWith<$Res> get data {
+    return $LogAddReactionCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class UConvoLogConvoLogRemoveReaction extends UConvoLog {
+  const UConvoLogConvoLogRemoveReaction({required this.data}) : super._();
+
+  @override
+  final LogRemoveReaction data;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UConvoLogConvoLogRemoveReactionCopyWith<UConvoLogConvoLogRemoveReaction>
+      get copyWith => _$UConvoLogConvoLogRemoveReactionCopyWithImpl<
+          UConvoLogConvoLogRemoveReaction>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UConvoLogConvoLogRemoveReaction &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'UConvoLog.logRemoveReaction(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UConvoLogConvoLogRemoveReactionCopyWith<$Res>
+    implements $UConvoLogCopyWith<$Res> {
+  factory $UConvoLogConvoLogRemoveReactionCopyWith(
+          UConvoLogConvoLogRemoveReaction value,
+          $Res Function(UConvoLogConvoLogRemoveReaction) _then) =
+      _$UConvoLogConvoLogRemoveReactionCopyWithImpl;
+  @useResult
+  $Res call({LogRemoveReaction data});
+
+  $LogRemoveReactionCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class _$UConvoLogConvoLogRemoveReactionCopyWithImpl<$Res>
+    implements $UConvoLogConvoLogRemoveReactionCopyWith<$Res> {
+  _$UConvoLogConvoLogRemoveReactionCopyWithImpl(this._self, this._then);
+
+  final UConvoLogConvoLogRemoveReaction _self;
+  final $Res Function(UConvoLogConvoLogRemoveReaction) _then;
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(UConvoLogConvoLogRemoveReaction(
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as LogRemoveReaction,
+    ));
+  }
+
+  /// Create a copy of UConvoLog
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LogRemoveReactionCopyWith<$Res> get data {
+    return $LogRemoveReactionCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }

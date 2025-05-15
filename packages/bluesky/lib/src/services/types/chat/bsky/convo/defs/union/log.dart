@@ -5,9 +5,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../../../../../../../ids.g.dart' as ids;
 import '../log_begin_convo.dart';
+import '../log_accept_convo.dart';
+import '../log_leave_convo.dart';
+import '../log_mute_convo.dart';
+import '../log_unmute_convo.dart';
 import '../log_create_message.dart';
 import '../log_delete_message.dart';
-import '../log_leave_convo.dart';
+import '../log_read_message.dart';
+import '../log_add_reaction.dart';
+import '../log_remove_reaction.dart';
 
 part 'log.freezed.dart';
 
@@ -20,9 +26,21 @@ sealed class UConvoLog with _$UConvoLog {
     required LogBeginConvo data,
   }) = UConvoLogConvoLogBeginConvo;
 
+  const factory UConvoLog.logAcceptConvo({
+    required LogAcceptConvo data,
+  }) = UConvoLogConvoLogAcceptConvo;
+
   const factory UConvoLog.logLeaveConvo({
     required LogLeaveConvo data,
   }) = UConvoLogConvoLogLeaveConvo;
+
+  const factory UConvoLog.logMuteConvo({
+    required LogMuteConvo data,
+  }) = UConvoLogConvoLogMuteConvo;
+
+  const factory UConvoLog.logUnmuteConvo({
+    required LogUnmuteConvo data,
+  }) = UConvoLogConvoLogUnmuteConvo;
 
   const factory UConvoLog.logCreateMessage({
     required LogCreateMessage data,
@@ -31,6 +49,18 @@ sealed class UConvoLog with _$UConvoLog {
   const factory UConvoLog.logDeleteMessage({
     required LogDeleteMessage data,
   }) = UConvoLogConvoLogDeleteMessage;
+
+  const factory UConvoLog.logReadMessage({
+    required LogReadMessage data,
+  }) = UConvoLogConvoLogReadMessage;
+
+  const factory UConvoLog.logAddReaction({
+    required LogAddReaction data,
+  }) = UConvoLogConvoLogAddReaction;
+
+  const factory UConvoLog.logRemoveReaction({
+    required LogRemoveReaction data,
+  }) = UConvoLogConvoLogRemoveReaction;
 
   const factory UConvoLog.unknown({
     required Map<String, dynamic> data,
@@ -55,9 +85,24 @@ final class _UConvoLogConverter
           data: LogBeginConvo.fromJson(json),
         );
       }
+      if (type == ids.chatBskyConvoDefsLogAcceptConvo) {
+        return UConvoLog.logAcceptConvo(
+          data: LogAcceptConvo.fromJson(json),
+        );
+      }
       if (type == ids.chatBskyConvoDefsLogLeaveConvo) {
         return UConvoLog.logLeaveConvo(
           data: LogLeaveConvo.fromJson(json),
+        );
+      }
+      if (type == ids.chatBskyConvoDefsLogMuteConvo) {
+        return UConvoLog.logMuteConvo(
+          data: LogMuteConvo.fromJson(json),
+        );
+      }
+      if (type == ids.chatBskyConvoDefsLogUnmuteConvo) {
+        return UConvoLog.logUnmuteConvo(
+          data: LogUnmuteConvo.fromJson(json),
         );
       }
       if (type == ids.chatBskyConvoDefsLogCreateMessage) {
@@ -70,6 +115,21 @@ final class _UConvoLogConverter
           data: LogDeleteMessage.fromJson(json),
         );
       }
+      if (type == ids.chatBskyConvoDefsLogReadMessage) {
+        return UConvoLog.logReadMessage(
+          data: LogReadMessage.fromJson(json),
+        );
+      }
+      if (type == ids.chatBskyConvoDefsLogAddReaction) {
+        return UConvoLog.logAddReaction(
+          data: LogAddReaction.fromJson(json),
+        );
+      }
+      if (type == ids.chatBskyConvoDefsLogRemoveReaction) {
+        return UConvoLog.logRemoveReaction(
+          data: LogRemoveReaction.fromJson(json),
+        );
+      }
 
       return UConvoLog.unknown(data: json);
     } catch (_) {
@@ -80,9 +140,15 @@ final class _UConvoLogConverter
   @override
   Map<String, dynamic> toJson(UConvoLog object) => switch (object) {
         UConvoLogConvoLogBeginConvo(:final data) => data.toJson(),
+        UConvoLogConvoLogAcceptConvo(:final data) => data.toJson(),
         UConvoLogConvoLogLeaveConvo(:final data) => data.toJson(),
+        UConvoLogConvoLogMuteConvo(:final data) => data.toJson(),
+        UConvoLogConvoLogUnmuteConvo(:final data) => data.toJson(),
         UConvoLogConvoLogCreateMessage(:final data) => data.toJson(),
         UConvoLogConvoLogDeleteMessage(:final data) => data.toJson(),
+        UConvoLogConvoLogReadMessage(:final data) => data.toJson(),
+        UConvoLogConvoLogAddReaction(:final data) => data.toJson(),
+        UConvoLogConvoLogRemoveReaction(:final data) => data.toJson(),
         UConvoLogUnknown(:final data) => data,
       };
 }
