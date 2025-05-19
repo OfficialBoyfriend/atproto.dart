@@ -37,6 +37,12 @@ const appBskyActorSearchActors = NSID(ids.appBskyActorSearchActors);
 const appBskyActorSearchActorsTypeahead =
     NSID(ids.appBskyActorSearchActorsTypeahead);
 
+/// `app.bsky.actor.status`
+const appBskyActorStatus = NSID(ids.appBskyActorStatus);
+
+/// `app.bsky.actor.status#live`
+const appBskyActorStatusLive = NSID(ids.appBskyActorStatusLive);
+
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = NSID(ids.appBskyEmbedExternal);
 
@@ -343,6 +349,10 @@ const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = NSID(ids.appBskyUnspeccedGetConfig);
+
+/// `app.bsky.unspecced.getConfig#liveNowConfig`
+const appBskyUnspeccedGetConfigLiveNowConfig =
+    NSID(ids.appBskyUnspeccedGetConfigLiveNowConfig);
 
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =

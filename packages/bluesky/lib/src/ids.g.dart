@@ -90,6 +90,9 @@ const appBskyActorDefsSavedFeedsPref = 'app.bsky.actor.defs#savedFeedsPref';
 /// `app.bsky.actor.defs#savedFeedsPrefV2`
 const appBskyActorDefsSavedFeedsPrefV2 = 'app.bsky.actor.defs#savedFeedsPrefV2';
 
+/// `app.bsky.actor.defs#statusView`
+const appBskyActorDefsStatusView = 'app.bsky.actor.defs#statusView';
+
 /// `app.bsky.actor.defs#threadViewPref`
 const appBskyActorDefsThreadViewPref = 'app.bsky.actor.defs#threadViewPref';
 
@@ -131,6 +134,12 @@ const appBskyActorSearchActors = 'app.bsky.actor.searchActors';
 /// `app.bsky.actor.searchActorsTypeahead`
 const appBskyActorSearchActorsTypeahead =
     'app.bsky.actor.searchActorsTypeahead';
+
+/// `app.bsky.actor.status`
+const appBskyActorStatus = 'app.bsky.actor.status';
+
+/// `app.bsky.actor.status#live`
+const appBskyActorStatusLive = 'app.bsky.actor.status#live';
 
 /// `app.bsky.embed.defs`
 const appBskyEmbedDefs = 'app.bsky.embed.defs';
@@ -632,6 +641,10 @@ const appBskyUnspeccedDefsTrendingTopic =
 
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';
+
+/// `app.bsky.unspecced.getConfig#liveNowConfig`
+const appBskyUnspeccedGetConfigLiveNowConfig =
+    'app.bsky.unspecced.getConfig#liveNowConfig';
 
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =

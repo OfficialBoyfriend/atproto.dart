@@ -58,7 +58,7 @@ sidebar_position: 4
 | **[com.atproto.label.queryLabels](https://pub.dev/documentation/atproto/latest/atproto/LabelService/queryLabels.html)** | [Reference](lexicons/com/atproto/label/queryLabels.md) | ✅ |
 | **[com.atproto.label.subscribeLabels](https://pub.dev/documentation/atproto/latest/atproto/LabelService/subscribeLabels.html)** | [Reference](lexicons/com/atproto/label/subscribeLabels.md) | ✅ |
 
-### com.atproto.lexicon
+### com.atproto.server
 
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
@@ -88,19 +88,11 @@ sidebar_position: 4
 | **[com.atproto.server.requestAccountDelete](https://pub.dev/documentation/atproto/latest/atproto/ServerService/requestAccountDelete.html)** | [Reference](lexicons/com/atproto/server/requestAccountDelete.md) | ❌ |
 | **[com.atproto.server.createInviteCode](https://pub.dev/documentation/atproto/latest/atproto/ServerService/createInviteCode.html)** | [Reference](lexicons/com/atproto/server/createInviteCode.md) | ❌ |
 
-### com.atproto.identity
+### com.atproto.lexicon
 
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
-| **[com.atproto.identity.resolveIdentity](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/resolveIdentity.html)** | [Reference](lexicons/com/atproto/identity/resolveIdentity.md) | ❌ |
-| **[com.atproto.identity.getRecommendedDidCredentials](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/getRecommendedDidCredentials.html)** | [Reference](lexicons/com/atproto/identity/getRecommendedDidCredentials.md) | ❌ |
-| **[com.atproto.identity.requestPlcOperationSignature](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/requestPlcOperationSignature.html)** | [Reference](lexicons/com/atproto/identity/requestPlcOperationSignature.md) | ❌ |
-| **[com.atproto.identity.resolveDid](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/resolveDid.html)** | [Reference](lexicons/com/atproto/identity/resolveDid.md) | ❌ |
-| **[com.atproto.identity.refreshIdentity](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/refreshIdentity.html)** | [Reference](lexicons/com/atproto/identity/refreshIdentity.md) | ❌ |
-| **[com.atproto.identity.resolveHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/resolveHandle.html)** | [Reference](lexicons/com/atproto/identity/resolveHandle.md) | ❌ |
-| **[com.atproto.identity.signPlcOperation](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/signPlcOperation.html)** | [Reference](lexicons/com/atproto/identity/signPlcOperation.md) | ❌ |
-| **[com.atproto.identity.submitPlcOperation](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/submitPlcOperation.html)** | [Reference](lexicons/com/atproto/identity/submitPlcOperation.md) | ❌ |
-| **[com.atproto.identity.updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/updateHandle.html)** | [Reference](lexicons/com/atproto/identity/updateHandle.md) | ❌ |
+| **[com.atproto.lexicon.schema](https://pub.dev/documentation/atproto/latest/atproto/LexiconService/schema.html)** | [Reference](lexicons/com/atproto/lexicon/schema.md) | ❌ |
 
 ### com.atproto.sync
 
@@ -265,6 +257,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.actor.putPreferences](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/putPreferences.html)** | [Reference](lexicons/app/bsky/actor/putPreferences.md) | ❌ |
 | **[app.bsky.actor.searchActors](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/searchActors.html)** | [Reference](lexicons/app/bsky/actor/searchActors.md) | ✅ |
 | **[app.bsky.actor.getPreferences](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/getPreferences.html)** | [Reference](lexicons/app/bsky/actor/getPreferences.md) | ❌ |
+| **[app.bsky.actor.status](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/status.html)** | [Reference](lexicons/app/bsky/actor/status.md) | ❌ |
 | **[app.bsky.actor.profile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/profile.html)** | [Reference](lexicons/app/bsky/actor/profile.md) | ❌ |
 
 ### app.bsky.labeler
