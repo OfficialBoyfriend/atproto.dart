@@ -135,3 +135,7 @@ app.*.symbols
 !.vscode/settings.json
 
 coverage.lcov
+
+# Generated files
+**/*.g.dart
+**/*.freezed.dart
