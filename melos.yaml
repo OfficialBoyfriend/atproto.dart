@@ -3,9 +3,16 @@ name: atproto
 command:
   bootstrap:
     usePubspecOverrides: true
+    environment:
+      sdk: ">=3.8.0 <4.0.0"
+      flutter: ">=3.32.0 <4.0.0"
+    dev_dependencies:
+      flutter_lints: ^6.0.0
+      very_good_analysis: ^9.0.0
+      import_sorter: ^4.6.0
 
 packages:
-  - website/**
+  # - website/**
   - packages/**
   - examples/**
 
@@ -71,3 +78,7 @@ scripts:
       cd ../../
       melos fmt
     description: Generate code for atproto and blueksy based on lexicons.
+
+ide:
+ intellij:
+   enabled: false
