@@ -10,6 +10,7 @@ abstract class SealedAppPassword with _$SealedAppPassword {
   const factory SealedAppPassword({
     required String name,
     required DateTime createdAt,
+    @Default(false) bool privileged,
   }) = _SealedAppPassword;
 
   factory SealedAppPassword.fromJson(Map<String, Object?> json) =>
